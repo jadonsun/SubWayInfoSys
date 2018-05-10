@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>地铁周边房价查询</title>
+
+	
+    <link type="text/css" rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="lib/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    
+    
+</head>
+<body>
+<div class="wrapper">
+	<!-- top -->
+	<div class="login_header">
+		<div class="login">
+			基于NAS链的地铁周边房价查询管家
+		</div>
+        <div class="head_nav">
+            <div class="navbar nabar-default">
+                <ul class="nav nav-pills" style="font-size:  22px;">
+                    <li role="presentation" class="active" style="margin-right:10px;"><a href="#tiyan">业务体验</a></li>
+                    <li role="presentation"  style="margin-right:10px;"><a href="#about">项目前景</a></li>
+                    <li role="presentation"  style="margin-right:10px;"><a href="#introduce">用法介绍</a></li>
+                </ul>
+            </div>
+        </div>
+       
+    </div>
+    <div class="noExtension hide" id="noExtension">
+            注意: 为了能使用地铁周边查询系统，请安装 <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>插件
+    </div>
+	<!-- top -->
+	<!-- main -->
+    <div class="main">
+        <div class="menu" name="tiyan" id="tiyan">
+            <div class="list_01">
+                <div class="list_header">城市列表</div>
+                <div div align="right" style="margin-top:10px;">
+                    <!--data-target="#add-subway-info-input"  data-toggle="modal"-->
+                    <button type="submit" class="btn btn-primary" id="add-subway-info">添加城市地铁信息</button>
+                </div>
+                <div class="alert alert-success hide" role="alert" id="no-city-info">
+                    <strong>提示:</strong> 暂时没有城市信息，添加一个吧
+                </div>
+                <div id="city-list-container">
+                    <table class="table table-bordered">
+                        <tbody id="city-list-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="main_content">
+            <div class="main_01">
+                <div class="main_right main_right01">
+                    <div class="list_01">
+                        <div class="list_header">地铁线路</div>
+                        <div class="alert alert-success" role="alert" id="tip-query-subway">
+                            <strong>提示:</strong> 请选择城市查询地铁列表
+                        </div>
+                        <ul id="sub-way-list">
+                        </ul>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+
+        <div class="main_content">
+            <div class="main_01">
+                <div class="main_right main_right01">
+                    <div class="list_01">
+                        <div class="list_header">房价信息</div>
+                        <div align="right" style="margin-top:10px;">
+                            <button type="submit" class="btn btn-primary" id="add-subway-house-info"> 添加房价</button>
+                        </div>
+                        <div class="alert alert-success" role="alert" id="no-house-info">
+                            <strong>提示:</strong> 暂时没有房价信息，添加一个吧
+                        </div>
+                        <table class="table hide" id="house-list-table">
+                            <thead>
+                                <tr>
+                                    <th>小区名称</th>
+                                    <th>均价</th>
+                                    <th>最低价</th>
+                                    <th>最高价</th>
+                                    <th>直线距离</th>
+                                    <th>提供者</th>
+                                    <!--<th>打赏</th>-->
+                                </tr>
+                            </thead>
+                            <tbody  id="house-info-list">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+
+        <div class="main_content" name="about" id="about">
+            <div class="main_01">
+                <div class="main_right main_right01">
+                    <div class="list_01">
+                        <div class="list_header">项目前景</div>
+                        <div class="media"  style="margin-top: 10px;">
+                            <div class="media-left">
+                                <a href="#">
+                                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="img\\beijing.png" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">项目背景</h4>
+                                <p>近年来，国内货币调控政策略有收紧，地产调控力度较大，房地产市场面临收缩，投资开工幅度呈现微幅增长态势。但2018年，因行业集中度提升，地价仍维持较高水平，产业并购仍将继续，未来房企竞争势必强者更强，以上因素导致国内二线以上城市优质房产价格水涨船高，随着国家铁路轨道交通不断蓬勃发展，地铁、高铁不断建设开发让人民生活多出了便利选择，而城市居民购房的第一衡量标准就是房产区位优势，导致地铁周边房价普遍提升，该现象也衍生出个别房产交易中介挂牌价格虚高，购房居民中开始有“房产价格不透明”“购房无话语权”“不公平、不公开”等声音出现。</p>
+                            </div>
+                        </div>
+                        <div class="media"  style="margin-top: 10px;">
+                            <div class="media-left">
+                                <a href="#">
+                                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="img\\mudi.png" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">开发目的</h4>
+                                <p>基于NAS链的地铁周边房价查询管家dapp目的是打破常规，城市居民可自行录入所知、待售房价，其他城市居民可查看最真实最准确的房价信息，如地铁线路周边房价，其他人可以看到最真实的价格，彻底弱化房地产中介等中心化管控因素，打破中介商操控。</p>
+                            </div>
+                        </div>
+                        <div class="media"  style="margin-top: 10px;">
+                            <div class="media-left">
+                                <a href="#">
+                                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="img\\future.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">项目展望</h4>
+                                <p>未来，将继续开发针对房产价格的录入信息评价机制，提供价格判别、信息删除等功能，同时，建立以NAS币为媒介的打赏模式，鼓励大家多发正确的房价信息。</p>
+                                <p>敬请期待。。。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+
+        <div class="main_content" name="introduce" id="introduce">
+            <div class="main_01">
+                <div class="main_right main_right01">
+                    <div class="list_01">
+                        <div class="list_header">用法介绍</div>
+                        <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail">
+                            <div class="caption">
+                                <h3>添加城市地铁线</h3>
+                                <p>
+                                    <li>1.通过添加城市按钮录入一条完整的地铁线信息</li>
+                                    <li>2.录入成功后，刷新界面，即可以查看地铁线路信息</li>
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail">
+                            <div class="caption">
+                                <h3>查看城市地铁线</h3>
+                                <p>
+                                    点击不同城市可以查看该城市的所有地铁线路信息
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail">
+                            <div class="caption">
+                                <h3>添加地铁周边房价</h3>
+                                <p>
+                                    <li>1.需要先选择城市，再选择具体的地铁站，否则录入无效</li>
+                                    <li>2.录入成功后，点击对应的地铁站即可以查看房价信息</li>
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                         <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail">
+                            <div class="caption">
+                                <h3>查看地铁周边房价</h3>
+                                <p>通过选择城市、地铁线路、再选择地铁站，即可以查看对应的周边放假信息</p>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+
+    </div>
+  
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="add-subway-info-input">  
+        <div class="modal-dialog" role="document">  
+            <div class="modal-content">
+                <div class="modal-header">  
+                    <h4 class="modal-title" id="exampleModalLabel">录入地铁信息</h4>  
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span  
+                            aria-hidden="true">×</span></button>  
+                    
+                </div>  
+                <div class="modal-body">  
+                    <form>  
+                        <div class="form-group">  
+                            <label for="recipient-name" class="control-label">城市:</label>  
+                            <input type="text" class="form-control" id="city-name-input">  
+                        </div>  
+                        <div class="form-group">  
+                            <label for="recipient-name" class="control-label">地铁线:</label>  
+                            <!--<input type="text" class="form-control" id="city-line-input">  -->
+                            <select id="city-line-input">
+                                <option value="1">地铁1号线</option>
+                                <option value="2">地铁2号线</option>
+                                <option value="3">地铁3号线</option>
+                                <option value="4">地铁4号线</option>
+                                <option value="5">地铁5号线</option>
+                            </select>
+                        </div>  
+                        <div class="form-group">  
+                            <label for="message-text" class="control-label">站点列表:</label>  
+                            <textarea class="form-control" id="subway-info-input" placeholder='["站台1", "站台2", "站台3"]'></textarea>  
+                        </div>  
+                    </form>  
+                </div>  
+
+                <div class="modal-footer">  
+                    <div class="alert alert-danger hide" role="alert" id="input-city_error">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="commit-subway-info">添加</button>  
+                    <button type="button" class="btn btn-default" id="cancel-subway-info">取消</button>  
+                </div>  
+            </div>  
+        </div>  
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="add-house-info-input">  
+        <div class="modal-dialog" role="document">  
+            <div class="modal-content">  
+                <div class="modal-header">  
+                    <h4 class="modal-title" id="exampleModalLabel">录入房价信息</h4>  
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span  
+                            aria-hidden="true">×</span></button>  
+                    
+                </div>  
+                <div class="modal-body">  
+                    <form>  
+                        <div class="form-group">  
+                            <label for="recipient-name" class="control-label">小区名称:</label>  
+                            <input type="text" class="form-control" id="house-name-input">  
+                        </div>  
+                        <div class="form-group">  
+                            <label for="recipient-name" class="control-label">均价:</label>  
+                            <input type="text" class="form-control" id="house-price-input" placeholder="50000元">  
+                        </div>  
+                        <div class="form-group">  
+                            <label for="message-text" class="control-label">最高价:</label>  
+                            <input type="text" id="price-most-input" placeholder="50000元">
+                        </div>  
+                        <div class="form-group">  
+                            <label for="message-text" class="control-label">最低价:</label>  
+                            <input type="text" id="price-lowest-input" placeholder="50000元">
+                        </div>  
+                        <div class="form-group">  
+                            <label for="message-text" class="control-label">直线距离:</label>  
+                            <input type="text" id="line-distance-input" placeholder="1.3km">
+                        </div>  
+                        <div class="form-group">  
+                            <label for="message-text" class="control-label">录入者昵称:</label>  
+                            <input type="text" id="person-name-input" placeholder="昵称">
+                        </div>  
+                    </form>  
+                </div>  
+                <div class="modal-footer">  
+                    <div class="alert alert-danger hide" role="alert" id="input-house-error">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="commit-house-info">录入</button>  
+                    <button type="button" class="btn btn-default" id="cancel-house-info">取消</button>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+
+    <div id="loading" class="loading hide">加载中</div>  
+
+</div>
+
+
+<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
